@@ -7,10 +7,10 @@ from matplotlib import pyplot as plt
 
 import algorithms as al
 
-network_airport = './A3-networks/model/rb125.net'
+network_airport = './A3-networks/real/cat_cortex_sim.net'
 graph = nx.read_pajek(network_airport)
 graph = nx.Graph(graph)
 
-#al.walktrap(graph)
 #al.louvain(graph)
 #al.greedy(graph)
+al.walktrap(graph)
