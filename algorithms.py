@@ -14,9 +14,16 @@ def greedy():
     
     return 0
 
-def walktrap(path):
-    g = ig.read(path,format="pajek")
-    communities = g.community_walktrap(steps = 4)
+def walktrap(G):
+    
+    g = ig.Graph.TupleList(G.edges(), directed=False)
+
+    wtrap = g.community_walktrap(steps = 4)
+
+    clust = wtrap.as_clustering()
+    #print(len(clust))
+    #print(clust[0])
+    ig.plot(clust, mark_groups = True, bbox=(1600,900))#, vertex_label=g.vs['name'])
     return 0
     
     
