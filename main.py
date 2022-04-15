@@ -30,9 +30,9 @@ if __name__ == '__main__':
 
             #print(net_file_sep[0])
             
-            al.louvain(graph, net_file_sep[0])
-            al.greedy(graph, net_file_sep[0])
-            al.walktrap(graph, net_file_sep[0])
+            community_list_louvain=al.louvain(graph, net_file_sep[0])
+            community_list_greedy=al.greedy(graph, net_file_sep[0])
+            community_list_walktrap=al.walktrap(graph, net_file_sep[0])
 
     
     '''network_airport = './A3-networks/real/cat_cortex_sim.net'

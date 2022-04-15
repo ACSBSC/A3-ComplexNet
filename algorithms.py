@@ -27,11 +27,13 @@ def louvain(G, path):
     cluste_list = nx_comm.louvain_communities(G, seed=123)
     id_cluster_list = return_list_cluster(cluste_list, G)
     sp.save_file(id_cluster_list, 'louvain\\'+path)
+    return id_cluster_list
 
 def greedy(G, path):
     clust_list=nx_comm.greedy_modularity_communities(G, weight='weight')
     id_cluster_list = return_list_cluster(clust_list, G)
     sp.save_file(id_cluster_list, 'greedy\\'+path)
+    return id_cluster_list
 
 def walktrap(G, path):
     
@@ -45,9 +47,10 @@ def walktrap(G, path):
     id_cluster_list = list(np.asarray(id_cluster_list) + 1)
     
     sp.save_file(id_cluster_list, 'walktrap\\'+path)
+    ig.plot(clust, mark_groups = True, bbox=(1600,900))#, vertex_label=g.vs['name'])
+    return id_cluster_list
     
     
-    #ig.plot(clust, mark_groups = True, bbox=(1600,900))#, vertex_label=g.vs['name'])
    
     
     
