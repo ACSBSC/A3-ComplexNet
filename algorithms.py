@@ -6,6 +6,8 @@ import igraph as ig    #other algorithms for community detection (walktrap)
 import pandas as pd
 from matplotlib import pyplot as plt
 
+import save_partition as sp
+
 
 def return_list_cluster(list, G):
     nodes = dict(G.nodes())
@@ -21,18 +23,17 @@ def return_list_cluster(list, G):
     return list_of_cluster
 
 
-def louvain(G):
+def louvain(G, path):
     cluste_list = nx_comm.louvain_communities(G, seed=123)
     id_cluster_list = return_list_cluster(cluste_list, G)
+    sp.save_file(id_cluster_list, 'louvain\\'+path)
 
-
-def greedy(G):
+def greedy(G, path):
     clust_list=nx_comm.greedy_modularity_communities(G, weight='weight')
     id_cluster_list = return_list_cluster(clust_list, G)
+    sp.save_file(id_cluster_list, 'greedy\\'+path)
 
-
-
-def walktrap(G):
+def walktrap(G, path):
     
     g = ig.Graph.TupleList(G.edges(), directed=False)
 
@@ -42,6 +43,8 @@ def walktrap(G):
     
     id_cluster_list = clust.membership
     id_cluster_list = list(np.asarray(id_cluster_list) + 1)
+    
+    sp.save_file(id_cluster_list, 'walktrap\\'+path)
     
     
     #ig.plot(clust, mark_groups = True, bbox=(1600,900))#, vertex_label=g.vs['name'])

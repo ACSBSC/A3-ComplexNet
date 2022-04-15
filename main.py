@@ -28,16 +28,18 @@ if __name__ == '__main__':
             graph = nx.read_pajek(net_file)
             graph = nx.Graph(graph)
 
-            # al.louvain(graph)
-            # al.greedy(graph)
-            al.walktrap(graph)
+            #print(net_file_sep[0])
+            
+            al.louvain(graph, net_file_sep[0])
+            al.greedy(graph, net_file_sep[0])
+            al.walktrap(graph, net_file_sep[0])
 
-    """
-    network_airport = './A3-networks/real/cat_cortex_sim.net'
+    
+    '''network_airport = './A3-networks/real/cat_cortex_sim.net'
     graph = nx.read_pajek(network_airport)
     graph = nx.Graph(graph)
     
-    # al.louvain(graph)
+    al.louvain(graph, network_airport)
     # al.greedy(graph)
-    al.walktrap(graph)
-    """
+    # al.walktrap(graph)'''
+ 
