@@ -11,8 +11,6 @@ def read_clu(path):
     Lines = file1.readlines()
     lines=[]
     
-    #print(len(Lines))
-    #print(int(Lines[1].strip()))
     for i in range(len(Lines)-1):
         lines.append(int(Lines[i+1].strip()))
     print(lines)
@@ -61,6 +59,7 @@ def compare_partitions():
             matrixW = compare_contingency_matrix(result1, result2_walktrap)
             print(matrixW)
             
+            #save matrix files into csv files
             np.savetxt("./contigency_matrix/"+clu_file_sep[0]+'/louvain_contigency_matrix_'+clu_file_sep0[1]+'.csv', matrixL, delimiter=",")
             np.savetxt("./contigency_matrix/"+clu_file_sep[0]+'/greedy_contigency_matrix_'+clu_file_sep0[1]+'.csv', matrixG, delimiter=",")
             np.savetxt("./contigency_matrix/"+clu_file_sep[0]+'/walktrap_contigency_matrix_'+clu_file_sep0[1]+'.csv', matrixW, delimiter=",")
