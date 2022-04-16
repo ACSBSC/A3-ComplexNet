@@ -32,14 +32,14 @@ if __name__ == '__main__':
             
             community_list_louvain=al.louvain(graph, net_file_sep[0])
             community_list_greedy=al.greedy(graph, net_file_sep[0])
-            community_list_walktrap=al.walktrap(graph, net_file_sep[0])
+            #community_list_walktrap=al.walktrap(graph, net_file_sep[0])
 
     
-    '''network_airport = './A3-networks/real/cat_cortex_sim.net'
+    '''network_airport = './A3-networks/real/airports_UW.net'
     graph = nx.read_pajek(network_airport)
     graph = nx.Graph(graph)
     
-    al.louvain(graph, network_airport)
-    # al.greedy(graph)
+    al.louvain(graph, "airports_UW")
+    #al.greedy(graph, "airports_UW")
     # al.walktrap(graph)'''
  
