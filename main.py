@@ -9,10 +9,6 @@ import algorithms as al
 
 if __name__ == '__main__':
     folders = ["./A3-networks/model/", "./A3-networks/real/", "./A3-networks/toy/"]
-    
-    community_list_louvain=[]
-    community_list_greedy=[]
-    community_list_walktrap=[]
 
     for folder in folders:
         net_files = glob.glob(os.path.join(folder, "*.net"))
@@ -41,12 +37,7 @@ if __name__ == '__main__':
             community_list_greedy=al.greedy(graph, net_file_sep[0])
             community_list_walktrap=al.walktrap(graph, net_file_sep[0])
             
-        for folder in folders:
-            clu_files = glob.glob(os.path.join(folder, "*.clu"))
-            for clu_file in clu_files:
-                clu_file_sep = clu_file.split("\\")
-                clu_file_sep = clu_file_sep[1].split(".clu")
-        #print(clu_files)
+        
     
     
     
