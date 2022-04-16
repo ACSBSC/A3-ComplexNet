@@ -47,6 +47,7 @@ def walktrap(G, path):
     id_cluster_list = list(np.asarray(id_cluster_list) + 1)
     
     sp.save_file(id_cluster_list, 'walktrap\\'+path)
+    print("Plottin Network "+path+" with algorithm walktrap")
     out = ig.plot(clust, mark_groups = True, bbox=(1600,900))
     out.save("./plots/"+path+'/walktrap_plot.png')
     
