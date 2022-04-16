@@ -27,8 +27,8 @@ def louvain(G, path):
     cluste_list = nx_comm.louvain_communities(G, seed=123)
     id_cluster_list = return_list_cluster(cluste_list, G)
     #print(cluste_list)
-    sp.save_file(id_cluster_list, 'louvain\\'+path)
-    p.plot(cluste_list, G, path, "louvain")
+    #sp.save_file(id_cluster_list, 'louvain\\'+path)
+    #p.plot(cluste_list, G, path, "louvain")
     return id_cluster_list
 
 def greedy(G, path):
