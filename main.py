@@ -1,10 +1,10 @@
 import os
 import glob
 
-import networkx as nx  # for optimal modularity algorithms (greedy, louvain)
-
+import networkx as nx  
 
 import algorithms as al
+import compare as c
 
 
 if __name__ == '__main__':
@@ -33,20 +33,14 @@ if __name__ == '__main__':
             graph = nx.read_pajek(net_file)
             graph = nx.Graph(graph)
             
-            community_list_louvain=al.louvain(graph, net_file_sep[0])
-            community_list_greedy=al.greedy(graph, net_file_sep[0])
-            community_list_walktrap=al.walktrap(graph, net_file_sep[0])
-            
-        
+            al.louvain(graph, net_file_sep[0])
+            al.greedy(graph, net_file_sep[0])
+            al.walktrap(graph, net_file_sep[0])
+                   
+    c.compare_partitions()   
     
     
     
     
-    '''network_airport = './A3-networks/real/airports_UW.net'
-    graph = nx.read_pajek(network_airport)
-    graph = nx.Graph(graph)
-    
-    al.louvain(graph, "airports_UW")
-    #al.greedy(graph, "airports_UW")
-    # al.walktrap(graph)'''
+
  

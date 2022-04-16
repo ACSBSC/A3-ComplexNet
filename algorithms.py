@@ -3,9 +3,6 @@ import networkx as nx  #for optimal modularity algorithms (greedy, louvain)
 import networkx.algorithms.community as nx_comm
 import igraph as ig    #other algorithms for community detection (walktrap)
 
-import pandas as pd
-from matplotlib import pyplot as plt
-
 import save_partition as sp
 import ploting as p
 
@@ -27,16 +24,16 @@ def louvain(G, path):
     cluste_list = nx_comm.louvain_communities(G, seed=123)
     id_cluster_list = return_list_cluster(cluste_list, G)
     #print(cluste_list)
-    #sp.save_file(id_cluster_list, 'louvain\\'+path)
-    #p.plot(cluste_list, G, path, "louvain")
-    return id_cluster_list
+    sp.save_file(id_cluster_list, 'louvain\\'+path)
+    p.plot(cluste_list, G, path, "louvain")
+    
 
 def greedy(G, path):
     clust_list=nx_comm.greedy_modularity_communities(G, weight='weight')
     id_cluster_list = return_list_cluster(clust_list, G)
     sp.save_file(id_cluster_list, 'greedy\\'+path)
     p.plot(clust_list, G, path, "greedy")
-    return id_cluster_list
+    
 
 def walktrap(G, path):
     
@@ -50,9 +47,9 @@ def walktrap(G, path):
     id_cluster_list = list(np.asarray(id_cluster_list) + 1)
     
     sp.save_file(id_cluster_list, 'walktrap\\'+path)
-    out = ig.plot(clust, mark_groups = True, bbox=(1600,900))#, vertex_label=g.vs['name'])
+    out = ig.plot(clust, mark_groups = True, bbox=(1600,900))
     out.save("./plots/"+path+'/walktrap_plot.png')
-    return id_cluster_list
+    
     
     
    
