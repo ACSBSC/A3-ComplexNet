@@ -5,6 +5,7 @@ import networkx as nx
 
 import algorithms as al
 import compare as c
+import modularity_graph as mod
 
 
 if __name__ == '__main__':
@@ -20,17 +21,22 @@ if __name__ == '__main__':
             graph = nx.read_pajek(net_file)
             graph = nx.Graph(graph)
             
-            '''al.louvain(graph, net_file_sep[0])
-            al.greedy(graph, net_file_sep[0])
-            al.walktrap(graph, net_file_sep[0])'''
+            partitionL=al.louvain(graph, net_file_sep[0])
+            partitionG=al.greedy(graph, net_file_sep[0])
+            partitionW=al.walktrap(graph, net_file_sep[0])
+            
+            mod.created_partition(graph,partitionL,partitionG,partitionW,net_file_sep[0])
     
-    network_airport = './A3-networks/real/airports_UW.net'
+    '''network_airport = './A3-networks/real/football.net'
     graph = nx.read_pajek(network_airport)
     graph = nx.Graph(graph)
-    al.louvain(graph, "airports_UW") 
-    al.greedy(graph, "airports_UW")
-    al.walktrap(graph, "airports_UW")            
-    #c.compare_partitions()   
+    partitionL=al.louvain(graph, "football") 
+    partitionG=al.greedy(graph, "football")
+    partitionW=al.walktrap(graph, "football")
+    mod.created_partition(graph,partitionL,partitionG,partitionW,"football")'''
+               
+    c.compare_partitions()
+    mod.existing_partition()   
     
     
     

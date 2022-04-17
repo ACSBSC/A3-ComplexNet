@@ -1,0 +1,4 @@
+Louvain				Greedy				Walktrap
+0.3671875	0.3671875	0.3671875
+Existing File
+0.3515625

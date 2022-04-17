@@ -2,8 +2,6 @@ import numpy as np
 import sklearn.metrics.cluster as skmc
 import os
 import glob
-from collections import defaultdict
-import pandas as pd
 
 
 def read_clu(path):
@@ -13,7 +11,7 @@ def read_clu(path):
     
     for i in range(len(Lines)-1):
         lines.append(int(Lines[i+1].strip()))
-    print(lines)
+    #print(lines)
     
     return lines
 

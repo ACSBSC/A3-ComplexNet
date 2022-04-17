@@ -22,17 +22,25 @@ def return_list_cluster(list, G):
 
 def louvain(G, path):
     cluste_list = nx_comm.louvain_communities(G, seed=123)
+    #print(cluste_list)
+    
     id_cluster_list = return_list_cluster(cluste_list, G)
+
     #print(cluste_list)
     sp.save_file(id_cluster_list, 'louvain\\'+path)
     p.plot(cluste_list, G, path, "louvain")
     
+    return cluste_list
+    
 
 def greedy(G, path):
     clust_list=nx_comm.greedy_modularity_communities(G, weight='weight')
+    
     id_cluster_list = return_list_cluster(clust_list, G)
     sp.save_file(id_cluster_list, 'greedy\\'+path)
     p.plot(clust_list, G, path, "greedy")
+    
+    return clust_list
     
 
 def walktrap(G, path):
@@ -50,6 +58,8 @@ def walktrap(G, path):
     print("Plottin Network "+path+" with algorithm walktrap")
     out = ig.plot(clust, mark_groups = True, bbox=(1600,900))
     out.save("./plots/"+path+'/walktrap_plot.png')
+    
+    return clust
     
     
     
