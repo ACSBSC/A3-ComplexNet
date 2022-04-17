@@ -35,7 +35,7 @@ if __name__ == '__main__':
     partitionW=al.walktrap(graph, "football")
     mod.created_partition(graph,partitionL,partitionG,partitionW,"football")'''
                
-    c.compare_partitions()
+    #c.compare_partitions() #this script did not work it only gets the contigency matrix and we run out of time to do this part, intesd we used radatools
     mod.existing_partition()   
     
     
